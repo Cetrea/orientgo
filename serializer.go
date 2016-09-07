@@ -3,7 +3,7 @@ package orient
 import (
 	"bytes"
 	"fmt"
-	"gopkg.in/istreamdata/orientgo.v2/obinary/rw"
+	"gopkg.in/cetrea/orientgo.v2/obinary/rw"
 	"io"
 )
 

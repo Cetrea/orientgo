@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"gopkg.in/istreamdata/orientgo.v2"
-	"gopkg.in/istreamdata/orientgo.v2/obinary/rw"
+	"gopkg.in/cetrea/orientgo.v2"
+	"gopkg.in/cetrea/orientgo.v2/obinary/rw"
 )
 
 func (c *Client) sendClientInfo(w *rw.Writer) {

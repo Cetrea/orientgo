@@ -1,7 +1,7 @@
 package orient_test
 
 import (
-	"gopkg.in/istreamdata/orientgo.v2"
+	"gopkg.in/cetrea/orientgo.v2"
 	"reflect"
 	"testing"
 )

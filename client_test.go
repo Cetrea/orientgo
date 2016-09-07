@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"gopkg.in/istreamdata/orientgo.v2"
+	"gopkg.in/cetrea/orientgo.v2"
 )
 
 func init() {

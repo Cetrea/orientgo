@@ -1,10 +1,10 @@
 # Overview
-[![Build Status](https://travis-ci.org/istreamdata/orientgo.svg?branch=v2)](https://travis-ci.org/istreamdata/orientgo)
-[![GoDoc](https://godoc.org/gopkg.in/istreamdata/orientgo.v2?status.svg)](https://godoc.org/gopkg.in/istreamdata/orientgo.v2)
+[![Build Status](https://travis-ci.org/cetrea/orientgo.svg?branch=v2)](https://travis-ci.org/cetrea/orientgo)
+[![GoDoc](https://godoc.org/gopkg.in/cetrea/orientgo.v2?status.svg)](https://godoc.org/gopkg.in/cetrea/orientgo.v2)
 
 **OrientGo** is a Go client for the [OrientDB](http://orientdb.com/orientdb/) database.
 
-![OrientGo Logo](https://raw.github.com/istreamdata/orientgo/v2/logo/orientgo.png)
+![OrientGo Logo](https://raw.github.com/cetrea/orientgo/v2/logo/orientgo.png)
 
 # Status
 
@@ -12,8 +12,8 @@ OrientDB versions supported: **2.0.15 - 2.1.5**
 
 **Not supported versions:**
 
-- 2.1.0 (bug in OrientDB, see [#28](https://github.com/istreamdata/orientgo/issues/28))
-- 2.1.3 (broken protocol, see [#39](https://github.com/istreamdata/orientgo/issues/39))
+- 2.1.0 (bug in OrientDB, see [#28](https://github.com/cetrea/orientgo/issues/28))
+- 2.1.3 (broken protocol, see [#39](https://github.com/cetrea/orientgo/issues/39))
 
 Driver is under active development. API in `orientgo` is potentially unstable (though getting more stable now).
 
@@ -21,12 +21,12 @@ Early adopters are welcome to try it out and report any problems found.
 
 ### Ogonori
 
-Original ogonori API is deprecated. Still, it's source code have been frozen in [v1.0](https://github.com/istreamdata/orientgo/tree/v1.0) branch.
-To use it, simply replace `github.com/quux00/ogonori` imports with `gopkg.in/istreamdata/orientgo.v1`.
+Original ogonori API is deprecated. Still, it's source code have been frozen in [v1.0](https://github.com/cetrea/orientgo/tree/v1.0) branch.
+To use it, simply replace `github.com/quux00/ogonori` imports with `gopkg.in/cetrea/orientgo.v1`.
 
 ### Supported features:
-- Mostly any SQL [queries](http://godoc.org/gopkg.in/istreamdata/orientgo.v2#SQLQuery), [commands](http://godoc.org/gopkg.in/istreamdata/orientgo.v2#SQLCommand) and [batch requests](http://godoc.org/gopkg.in/istreamdata/orientgo.v2#ScriptCommand).
-- Server-side scripts (via [ScriptCommand](http://godoc.org/gopkg.in/istreamdata/orientgo.v2#ScriptCommand) or [functions](http://godoc.org/gopkg.in/istreamdata/orientgo.v2#Function)).
+- Mostly any SQL [queries](http://godoc.org/gopkg.in/cetrea/orientgo.v2#SQLQuery), [commands](http://godoc.org/gopkg.in/cetrea/orientgo.v2#SQLCommand) and [batch requests](http://godoc.org/gopkg.in/cetrea/orientgo.v2#ScriptCommand).
+- Server-side scripts (via [ScriptCommand](http://godoc.org/gopkg.in/cetrea/orientgo.v2#ScriptCommand) or [functions](http://godoc.org/gopkg.in/cetrea/orientgo.v2#Function)).
 - Command results conversion to custom types via [mapstructure](http://github.com/mitchellh/mapstructure).
 - Direct CRUD operations on `Document` or `BytesRecord` objects.
 - Management of databases and record clusters.
@@ -39,9 +39,9 @@ To use it, simply replace `github.com/quux00/ogonori` imports with `gopkg.in/ist
 - Fetch plans are temporary disabled due to internal changes.
 - Transactions in Go. Transactions in JS can be used instead.
 - Live queries.
-- Command results streaming ([#26](https://github.com/istreamdata/orientgo/issues/26)).
+- Command results streaming ([#26](https://github.com/cetrea/orientgo/issues/26)).
 - OrientDB CUSTOM type.
-- ORM-like API. See Issue [#6](https://github.com/istreamdata/orientgo/issues/6).
+- ORM-like API. See Issue [#6](https://github.com/cetrea/orientgo/issues/6).
 
 #### Caveat on using OrientGo as a database/sql API driver
 

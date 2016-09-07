@@ -9,8 +9,9 @@ import (
 	"sync"
 	"time"
 
-	"gopkg.in/istreamdata/orientgo.v2"
-	"gopkg.in/istreamdata/orientgo.v2/obinary/rw"
+	orient "github.com/cetrea/orientgo"
+
+	"gopkg.in/cetrea/orientgo.v2/obinary/rw"
 )
 
 func init() {

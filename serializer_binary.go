@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"time"
 
-	"gopkg.in/istreamdata/orientgo.v2/obinary/rw"
+	"gopkg.in/cetrea/orientgo.v2/obinary/rw"
 )
 
 //func init() {
