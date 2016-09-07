@@ -1,10 +1,12 @@
 package orient
 
 import (
+	"errors"
 	"fmt"
+	"io"
+
 	"github.com/nu7hatch/gouuid"
 	"gopkg.in/istreamdata/orientgo.v2/obinary/rw"
-	"io"
 )
 
 type OIdentifiableCollection interface {
@@ -111,6 +113,19 @@ func (bag *embeddedRidBag) serializeDelegate(bw *rw.Writer) error {
 		}
 	}
 	return bw.Err()
+}
+
+func (bag *RidBag) GetRIDs() ([]RID, error) {
+	switch t := bag.delegate.(type) {
+	case *embeddedRidBag:
+		res := []RID{}
+		for _, r := range t.links {
+			res = append(res, r.GetIdentity())
+		}
+		return res, nil
+	default:
+		return nil, errors.New("Unsupported RidBag type")
+	}
 }
 
 func newSBTreeRidBag() ridBagDelegate { return &sbTreeRidBag{} }

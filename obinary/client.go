@@ -48,6 +48,7 @@ func Dial(addr string) (*Client, error) {
 	}
 	conn, err := net.DialTimeout("tcp", addr, time.Minute)
 	if err != nil {
+		fmt.Println("DialTimeout failed")
 		return nil, err
 	}
 	c := &Client{
@@ -98,6 +99,8 @@ type Client struct {
 	recordFormat orient.RecordSerializer
 }
 
+var notified = false
+
 func (c *Client) handshakeVersion() error {
 	c.conn.SetReadDeadline(time.Now().Add(time.Second * 5))
 	defer c.conn.SetReadDeadline(time.Time{})
@@ -111,8 +114,11 @@ func (c *Client) handshakeVersion() error {
 	} else if c.srvProtoVers < minBinarySerializerVersion { // may switch to CSV serialization, but we don't care for now
 		return ErrUnsupportedVersion(c.srvProtoVers)
 	} else if c.srvProtoVers > MaxProtocolVersion {
-		log.Printf("OrientDB version is unsupported by driver: %d vs %d. Will fallback to protocol %d.",
-			MaxProtocolVersion, c.srvProtoVers, CurrentProtoVersion)
+		if !notified {
+			notified = true
+			log.Printf("OrientDB version is unsupported by driver: %d vs %d. Will fallback to protocol %d.",
+				MaxProtocolVersion, c.srvProtoVers, CurrentProtoVersion)
+		}
 	}
 	c.recordFormat = orient.GetDefaultRecordSerializer()
 	c.curProtoVers = CurrentProtoVersion
@@ -268,8 +274,10 @@ func (c *Client) run() error {
 			e := readErrorResponse(c.pr, c.curProtoVers)
 			c.pushResp(sessId, nil, e)
 		case responseStatusPush:
+			fmt.Println("Push recv")
 			return ErrBrokenProtocol{fmt.Errorf("server push is not supported yet")}
 		default:
+			fmt.Printf("Unknown status, %v.\n", status)
 			return ErrBrokenProtocol{fmt.Errorf("unknown resp status: %d", status)}
 		}
 	}
