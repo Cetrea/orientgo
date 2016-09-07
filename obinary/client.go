@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	orient "github.com/cetrea/orientgo"
+	orient "gopkg.in/cetrea/orientgo.v2"
 
 	"gopkg.in/cetrea/orientgo.v2/obinary/rw"
 )
